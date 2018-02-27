@@ -1,0 +1,22 @@
+<h1>Companies#new</h1>
+
+<%= form_for @company do |company| %>
+
+  <% if @company.errors.any? %>
+    <% pluralize(@company.errors.count, 'error') %>
+      <ul>
+        <% @company.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  
+  <%= label_tag :new_name, 'Company Name:' %>
+  <%= text_field_tag :new_name %>
+  
+  <%= company.collection_select :name, Company.all, :name, :name, { prompt: 'Select a Company' }  %>
+  
+  <%= company.submit 'Submit' %>
+<% end %>

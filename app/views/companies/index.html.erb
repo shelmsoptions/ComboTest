@@ -1,0 +1,15 @@
+<h1>Companies#index</h1>
+<table>
+  <thead>
+    <th>Name</th>
+  </thead>
+  <tbody>
+    <% @companies.each do |c| %>
+    <tr>
+      <td><%= c.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_company_path %>
